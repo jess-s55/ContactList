@@ -6,7 +6,7 @@ export default function SelectedContact({ selectedContactId, setSelectedContactI
     useEffect(() => {
        async function fetchContact() {
         try {
-            const response = await fetch(`http://fsa-jsonplaceholder-69b5c48f1259.herokuapp.com/users/${selectedContactId}`);
+            const response = await fetch(`https://fsa-jsonplaceholder-69b5c48f1259.herokuapp.com/users/${selectedContactId}`);
             const contact = await response.json();
             setContact(contact);
         } catch (error) {
