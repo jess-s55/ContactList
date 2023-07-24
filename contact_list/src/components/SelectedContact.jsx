@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import ContactRow from './ContactRow.jsx';
+import Button from './button.jsx';
 
 export default function SelectedContact({ selectedContactId, setSelectedContactId }) {
-    const[contact, setContact] = useState(0);
+    const[contact, setContact] = useState({});
     useEffect(() => {
        async function fetchContact() {
         try {
@@ -15,7 +15,6 @@ export default function SelectedContact({ selectedContactId, setSelectedContactI
         
         }
         fetchContact();
-        
     }, [])
     console.log(contact);
     return (
@@ -33,7 +32,9 @@ export default function SelectedContact({ selectedContactId, setSelectedContactI
                     <td>{contact.phone}</td>
                 </tr>
             </tbody>
-        </table>
+            </table>
+       
+
         </div>
     )
 }
