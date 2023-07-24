@@ -54,3 +54,10 @@ thead {
 .singleRow:hover {
   color: yellow;
 }
+
+.singleRow {
+  /* border-bottom: 2px solid; */
+  /* border-color: white;   */
+  /* padding: 20px;
+  margin: 20px;  */
+}
