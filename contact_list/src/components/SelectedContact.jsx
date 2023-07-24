@@ -1,20 +1,39 @@
 import { useState, useEffect } from 'react';
+import ContactRow from './ContactRow.jsx';
 
 export default function SelectedContact({ selectedContactId, setSelectedContactId }) {
-    const[contact, setContact] = useState(null);
+    const[contact, setContact] = useState(0);
     useEffect(() => {
-        async function fetchContact() {
+       async function fetchContact() {
+        try {
             const response = await fetch(`http://fsa-jsonplaceholder-69b5c48f1259.herokuapp.com/users/${selectedContactId}`);
-            const { results: contact } = await response.json();
+            const contact = await response.json();
             setContact(contact);
-            console.log(contact);
+        } catch (error) {
+            console.error(error);
+        }
+        
         }
         fetchContact();
         
     }, [])
     console.log(contact);
     return (
-        
-        <div>hello</div>
+        <div>
+            <table>
+            <tbody>
+                <tr>
+                    <td>Name</td>
+                    <td>Email</td>
+                    <td>Phone</td>
+                </tr>
+                <tr>
+                    <td>{contact.name}</td>
+                    <td>{contact.email}</td>
+                    <td>{contact.phone}</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
     )
 }

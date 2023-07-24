@@ -40,3 +40,17 @@
 .read-the-docs {
   color: #888;
 }
+
+thead {
+  color: blue;
+  font-size: 40px;
+}
+
+.tableHeadings {
+  color: red;
+  font-size: 25px;
+}
+
+.singleRow:hover {
+  color: yellow;
+}
